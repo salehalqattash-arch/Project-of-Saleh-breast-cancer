@@ -1,10 +1,10 @@
-<<<<<<< HEAD
+
 flask>=2.3.0
 scikit-learn>=1.3.0
 numpy>=1.24.0
 pandas>=2.0.0
 tensorflow>=2.21.0
-=======
+
 flask==2.3.0
 scikit-learn==1.3.0
 numpy==1.24.3
@@ -14,4 +14,3 @@ pillow==10.0.0
 gunicorn==21.2.0
 kaggle==1.5.16
 matplotlib==3.7.2
->>>>>>> bf68ccb (update project)
