@@ -25,7 +25,7 @@ def download_model_from_kaggle():
         import kaggle
         from kaggle.api.kaggle_api_extended import KaggleApi
         # اسم النموذج على Kaggle 
-        dataset_name = "shfaanakour/tumor-image-model" 
+        dataset_name = "salehalqattash/saleh-project" 
         
         print("=" * 50)
         print(" جاري تحميل النموذج من Kaggle...")
