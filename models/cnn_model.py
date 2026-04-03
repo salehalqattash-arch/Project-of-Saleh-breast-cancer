@@ -10,7 +10,66 @@ from tensorflow.keras import layers
 # لقراءة الصور من المجلدات وتحسينها
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 # لفتح ومعالجة الصور عند التنبؤ
+<<<<<<< HEAD
 from PIL import Image 
+=======
+from PIL import Image
+import subprocess
+import sys
+
+# دوال تحميل النموذج من Kaggle
+def download_model_from_kaggle():
+    """تحميل النموذج من Kaggle إذا لم يكن موجوداً محلياً"""
+    try:
+        # استيراد kaggle داخل الدالة (لتفادي الأخطاء)
+        import kaggle
+        from kaggle.api.kaggle_api_extended import KaggleApi
+        # اسم النموذج على Kaggle 
+        dataset_name = "shfaanakour/tumor-image-model" 
+        
+        print("=" * 50)
+        print(" جاري تحميل النموذج من Kaggle...")
+        print(f"   المصدر: {dataset_name}")
+        print("=" * 50)
+        
+        # تحميل النموذج
+        kaggle.api.dataset_download_files(
+            dataset_name,
+            path='models',
+            unzip=True,
+            quiet=False
+        )
+        
+        print("=" * 50)
+        print(" تم تحميل النموذج بنجاح!")
+        print(f"   المسار: models/tumor_image_model.h5")
+        print("=" * 50)
+        return True
+        
+    except ImportError:
+        print(" Kaggle API غير مثبت. جاري التثبيت...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "kaggle"])
+        print(" تم تثبيت Kaggle API")
+        # محاولة مرة أخرى
+        return download_model_from_kaggle()
+        
+    except Exception as e:
+        print(f" فشل تحميل النموذج من Kaggle: {e}")
+        print("   سيتم استخدام النموذج المحلي إذا كان موجوداً، أو التدريب من الصفر")
+        return False
+
+
+def check_and_download_model(model_path):
+    """التحقق من وجود النموذج وتحميله إذا لزم الأمر"""
+    if os.path.exists(model_path):
+        print(f" النموذج موجود محلياً: {model_path}")
+        return True
+    
+    print(f" النموذج غير موجود: {model_path}")
+    print("   محاولة التحميل من Kaggle...")
+    return download_model_from_kaggle()
+
+>>>>>>> bf68ccb (update project)
 
 #نموذج للكشف عن الأورام من الصور
 class TumorImageDetector:
@@ -24,22 +83,40 @@ class TumorImageDetector:
         self.model = None
         self.is_trained = False
         self.model_path = "models/tumor_image_model.h5"
+<<<<<<< HEAD
         
         # محاولة تحميل نموذج مدرب مسبقاً إذا كان موجوداً
         if os.path.exists(self.model_path):
+=======
+
+        # التحقق من وجود النموذج وتحميله (باستخدام الدوال الجديدة)
+        if check_and_download_model(self.model_path):
+>>>>>>> bf68ccb (update project)
             try:
                 self.model = keras.models.load_model(self.model_path)
                 self.is_trained = True
                 print(" تم تحميل النموذج المدرب مسبقاً")
+<<<<<<< HEAD
             except:
                 print(" فشل تحميل النموذج، سيتم تدريب نموذج جديد")
+=======
+            except Exception as e:
+                print(f" فشل تحميل النموذج: {e}")
+                print(" سيتم تدريب نموذج جديد عند الحاجة")
+        else:
+            print(" لم يتم العثور على النموذج، سيتم تدريب نموذج جديد عند الحاجة")
+>>>>>>> bf68ccb (update project)
 
     def build_transfer_model(self):
         """
         استخدام نموذج VGG16 المدرب مسبقاً (Transfer Learning)
         هذه الطريقة أفضل إذا كانت البيانات محدودة
         """
+<<<<<<< HEAD
         # تحميل VGG16  Visual Geometry Group
+=======
+        # تحميل VGG16  
+>>>>>>> bf68ccb (update project)
         base_model = tf.keras.applications.VGG16(
             weights='imagenet',           # أوزان مدربة على ملايين الصور
             include_top=False,            # نستبعد الطبقات الأخيرة (التصنيف)

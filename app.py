@@ -17,13 +17,21 @@ import numpy as np
 # لتشغيل نموذج CNN
 import tensorflow as tf
 
-x=5
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> bf68ccb (update project)
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
 # إعدادات رفع الصور 
 UPLOAD_FOLDER = 'uploads'
+<<<<<<< HEAD
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'bmp', 'tiff'}
+=======
+ALLOWED_EXTENSIONS = {'png', 'jpg'}
+>>>>>>> bf68ccb (update project)
 
 # نخبر Flask بمكان حفظ الملفات
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

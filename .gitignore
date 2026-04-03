@@ -1,0 +1,28 @@
+# استبعد النموذج الكبير
+*.h5
+*.hdf5
+*.pkl
+models/*.h5
+
+# استبعد مجلدات البيانات
+breast_cancer_images/
+uploads/
+images_dataset/
+
+# استبعد ملفات Python المؤقتة
+__pycache__/
+*.pyc
+*.pyo
+
+# استبعد البيئة الافتراضية
+venv/
+env/
+.venv/
+
+# استبعد ملفات Kaggle (سرية)
+kaggle.json
+.kaggle/
+
+# استبعد ملفات النظام
+.DS_Store
+Thumbs.db
