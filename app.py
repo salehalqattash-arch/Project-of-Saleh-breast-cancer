@@ -17,12 +17,18 @@ import numpy as np
 # لتشغيل نموذج CNN
 import tensorflow as tf
 
+
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
 # إعدادات رفع الصور 
 UPLOAD_FOLDER = 'uploads'
+
 ich = 12
+
+ALLOWED_EXTENSIONS = {'png', 'jpg'}
+
+
 
 ALLOWED_EXTENSIONS = {'png', 'jpg'}
 

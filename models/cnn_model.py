@@ -297,11 +297,24 @@ import sys
 def download_model_from_kaggle():
     try:
         import kaggle
+<<<<<<< HEAD
 
         dataset_name = "shfaanakour/tumor-image-model"
 
         print("جاري تحميل النموذج من Kaggle...")
 
+=======
+        from kaggle.api.kaggle_api_extended import KaggleApi
+        # اسم النموذج على Kaggle 
+        dataset_name = "salehalqattash/saleh-project" 
+        
+        print("=" * 50)
+        print(" جاري تحميل النموذج من Kaggle...")
+        print(f"   المصدر: {dataset_name}")
+        print("=" * 50)
+        
+        # تحميل النموذج
+>>>>>>> bd900f4eaefd02529b56f8647051000368c62b1c
         kaggle.api.dataset_download_files(
             dataset_name,
             path='models',
@@ -479,6 +492,7 @@ class TumorImageDetector:
             "probability": round(prob * 100, 2),
             "diagnosis": "خبيث" if label == 1 else "حميد"
         }
+<<<<<<< HEAD
 
 
 # =========================
@@ -494,3 +508,5 @@ if __name__ == "__main__":
     # اختبار صورة
     # result = detector.predict("test.jpg")
     # print(result)
+=======
+>>>>>>> bd900f4eaefd02529b56f8647051000368c62b1c
