@@ -17,7 +17,8 @@ import numpy as np
 # لتشغيل نموذج CNN
 import tensorflow as tf
 
-
+ich = 2
+ich = 3
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024
 
