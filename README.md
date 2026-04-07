@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Breast-cancer-final
-=======
 # Tumor Detection System | نظام الكشف عن الأورام
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
@@ -54,4 +51,3 @@
 ---
 
 ## Project Structure | هيكل المشروع
->>>>>>> bf68ccb (update project)
